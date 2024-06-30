@@ -1,7 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mimoreir <mimoreir@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/30 17:51:04 by mimoreir          #+#    #+#             */
+/*   Updated: 2024/06/30 17:51:05 by mimoreir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FORM
 #define FORM
 
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -10,10 +24,9 @@ class Form
 		bool				isItSigned;
 		const int			gradeToSign;
 		const int			gradeToExe;
-		Form( void );
 	public:
-		Form( std::string name, int grade, int exe );
-		Form( cont Form& rhs );
+		Form(const std::string name, int grade, int exe);
+		Form(const Form& rhs);
 		~Form( void );
 
 		Form& operator=( const Form& rhs);
@@ -23,7 +36,7 @@ class Form
 		int			getGradeToSign() const;
 		int			getGradeToExe() const;
 
-		void		beSigned(const Bureaucrat& someBur );
+		void		beSigned(Bureaucrat &someBur);
 
 		class GradeTooHighException : public std::exception {
 		public:

@@ -6,7 +6,7 @@
 /*   By: mimoreir <mimoreir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 09:33:33 by mimoreir          #+#    #+#             */
-/*   Updated: 2024/06/20 10:40:11 by mimoreir         ###   ########.fr       */
+/*   Updated: 2024/06/30 17:47:05 by mimoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,17 @@ std::ostream& operator<<( std::ostream& o, const Bureaucrat& rhs )
 {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
 	return o;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned( *this );
+		std::cout << name << " signed " <<  form.getName() << std::endl;
+	}
+	catch(Form::GradeTooLowException &e)
+	{
+		std::cout << name << " couldn’t sign " << form.getName() << " because " << e.what() << '\n';
+	}	
 }
