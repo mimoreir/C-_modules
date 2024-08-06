@@ -10,14 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = serializer
+NAME = identifier
 
 SRC = Base.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -pedantic -std=c++98 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -pedantic -std=c++98 #-fsanitize=address
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: mimoreir <mimoreir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 14:00:32 by mimoreir          #+#    #+#             */
-/*   Updated: 2024/07/06 14:17:23 by mimoreir         ###   ########.fr       */
+/*   Updated: 2024/08/06 10:07:22 by mimoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 
 class Base
 {
