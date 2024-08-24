@@ -6,7 +6,7 @@
 /*   By: mimoreir <mimoreir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 09:33:38 by mimoreir          #+#    #+#             */
-/*   Updated: 2024/06/20 10:10:09 by mimoreir         ###   ########.fr       */
+/*   Updated: 2024/08/24 13:46:00 by mimoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,21 @@ int main( void )
 		m = z;
 		std::cout << m;
 		m.decrementGrade();
+		
+	}
+	catch(Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		Bureaucrat m("Miguel", 1);
+		Bureaucrat z("Ze", 150);
+		std::cout << m << z;
+		m = z;
+		std::cout << m;
+		m.incrementGrade();
 		
 	}
 	catch(Bureaucrat::GradeTooLowException &e)

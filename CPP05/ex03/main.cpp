@@ -6,7 +6,7 @@
 /*   By: mimoreir <mimoreir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 09:33:38 by mimoreir          #+#    #+#             */
-/*   Updated: 2024/07/04 10:38:13 by mimoreir         ###   ########.fr       */
+/*   Updated: 2024/08/24 13:51:42 by mimoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ int main( void )
 	Intern *noob = new Intern();
 	AForm *form;
 
-	//{"PresidencialForm", "RobotomyRequest", "ShrubberyForm"};
-	form = noob->makeForm("PresidencialForm", "target");
-    //ShrubberyCreationForm form1("Shrubbery");
-    //RobotomyRequestForm form2("Robotomy");
-    //PresidentialPardonForm form3("President");
+	//"PresidencialForm", "RobotomyRequest", "ShrubberyForm"
+	form = noob->makeForm("ShrubberyForm", "target");
+
 	
 	
 	try

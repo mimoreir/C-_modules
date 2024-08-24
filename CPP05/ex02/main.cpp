@@ -6,7 +6,7 @@
 /*   By: mimoreir <mimoreir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 09:33:38 by mimoreir          #+#    #+#             */
-/*   Updated: 2024/07/01 10:41:10 by mimoreir         ###   ########.fr       */
+/*   Updated: 2024/08/24 13:49:17 by mimoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int main( void )
 	
 	try
 	{
-		std::cout << bureaucrat << form1;
+		std::cout << bureaucrat << form2;
 		form1.beSigned(bureaucrat);
-		std::cout << form1;
-		bureaucrat.executeForm(form1);
+		std::cout << form2;
+		bureaucrat.executeForm(form2);
 	}
 	catch(const std::exception& e)
 	{
