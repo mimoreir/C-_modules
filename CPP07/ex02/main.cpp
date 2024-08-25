@@ -6,38 +6,61 @@
 /*   By: mimoreir <mimoreir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 12:22:46 by mimoreir          #+#    #+#             */
-/*   Updated: 2024/08/25 12:50:56 by mimoreir         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:00:02 by mimoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#include <iostream>
+#include "Array.hpp"
 
-template<typename T>
-void print(T const &t)
+#define MAX_VAL 750
+int main(int, char**)
 {
-    std::cout << t << std::endl;
-}
+    Array<int> numbers(10);
+    int* mirror = new int[10];
+    srand(time(NULL));
+    for (int i = 0; i < 10; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-template<typename T>
-void addOne(T &t)
-{
-    t++;
-}
+    for (int i = 0; i < 10; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+	std::cout << numbers << std::endl;
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Out of bounds" << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Out of bounds" << '\n';
+    }
 
-int main()
-{
-    int plop[] = {0,1,2,3,4,5,6,7,8,9};
-    std::string strs[] = { "Salut", "Comment" , "Tu", "Vas", "?"};
-
-    std::cout << "Print integer array : " << std::endl;
-    iter<const int>(plop, 10, print);
-    std::cout << std::endl;
-
-    iter<int>(plop, 10, addOne);
-    std::cout << "Print integer array after addOne: " << std::endl;
-    iter<const int>(plop, 10, print);
-    std::cout << std::endl;
-    
-    std::cout << "Print std::string array :" << std::endl;
-    iter<const std::string>(strs, 5, print);
+    for (int i = 0; i < 10; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
 }
