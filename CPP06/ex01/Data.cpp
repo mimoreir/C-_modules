@@ -12,15 +12,15 @@
 /* ************************************************************************** */
 #include "Data.hpp"
 
-uintptr_t serialize(Data *ptr)
+/*uintptr_t Serializer::serialize(Data *ptr)
 {
 	return reinterpret_cast<uintptr_t>(ptr);
 }
 
-Data *deserialize(uintptr_t ptr)
+Data * Serializer::deserialize(uintptr_t ptr)
 {
 	return reinterpret_cast<Data *>(ptr);
-}
+}*/
 
 int main(void)
 {
@@ -30,10 +30,11 @@ int main(void)
 	d->c = 'm';
 	std::cout << "       d:" << d << std::endl;
 	std::cout << "otherPtr:" << otherPtr << std::endl;
-	ptr = serialize(d);
-	otherPtr = deserialize(ptr);
+	ptr = Serializer::serialize(d);
+	otherPtr = Serializer::deserialize(ptr);
 	std::cout << "       d:" << d << std::endl;
 	std::cout << "otherPtr:" << otherPtr << std::endl;
+	std::cout << d->c << std::endl;
 	delete d;
 	return 0;
 }

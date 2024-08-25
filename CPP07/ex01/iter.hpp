@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimoreir <mimoreir@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/06 10:25:59 by mimoreir          #+#    #+#             */
-/*   Updated: 2024/08/25 12:53:37 by mimoreir         ###   ########.fr       */
+/*   Created: 2024/08/25 12:22:54 by mimoreir          #+#    #+#             */
+/*   Updated: 2024/08/25 12:30:26 by mimoreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,12 @@
 #include <cstdlib>
 
 template<typename T>
-void    swap(T& a, T&b)
+void    iter(T *arr, int len, void (*foo)(T &))
 {
-	T tmp;
-
-	tmp = a;
-	a = b;
-	b = tmp;
-}
-
-template<typename T>
-const T&    min(T& a, T&b)
-{
-	return (a < b ? a : b);
-}
-
-template<typename T>
-const T&    max(T& a, T&b)
-{
-	return (a > b ? a : b);
+    if (arr == NULL || len == 0 || foo == NULL)
+        return ;
+    for (int i = 0; i < len; i++)
+    {
+        foo(arr[i]);
+    }
 }
